@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, FileText } from 'lucide-react';
-import profileImage from '../assets/Snapseed.webp';
+import profileImage from '../assets/Snapseed.avif';
 
 const Hero = () => {
     return (
