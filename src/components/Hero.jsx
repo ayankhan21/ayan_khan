@@ -24,22 +24,16 @@ const Hero = () => {
                         style={{ flex: 1 }}
                     >
                         <h2 style={{
-                            fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+                            fontSize: 'clamp(3rem, 6vw, 5rem)',
                             textAlign: 'left',
-                            marginBottom: '1rem',
-                            fontFamily: '"Nabla", system-ui',
-                            fontOpticalSizing: 'auto',
-                            fontWeight: 400,
-                            fontStyle: 'normal',
-                            fontVariationSettings: '"EDPT" 100, "EHLT" 0',
-                            color: '#ffffff',
-                            textShadow: `
-                2px 2px 0px #1a1a1a,
-                4px 4px 0px #2a2a2a,
-                6px 6px 0px #3a3a3a,
-                8px 8px 0px #4a4a4a,
-                10px 10px 15px rgba(0,0,0,0.5)
-              `
+                            marginBottom: '0.5rem',
+                            fontWeight: 800,
+                            letterSpacing: '-0.02em',
+                            background: 'linear-gradient(to right, #ffffff, #a0a0a0)',
+                            WebkitBackgroundClip: 'text',
+                            WebkitTextFillColor: 'transparent',
+                            backgroundClip: 'text',
+                            color: 'transparent'
                         }}>
                             Ayan Khan
                         </h2>
@@ -50,7 +44,7 @@ const Hero = () => {
                             fontWeight: 400,
                             textAlign: 'left'
                         }}>
-                            Building digital experiences.
+                            Building scalable backend systems.
                         </h3>
                         <p style={{
                             maxWidth: '600px',
@@ -59,7 +53,7 @@ const Hero = () => {
                             marginBottom: '3rem',
                             lineHeight: 1.8
                         }}>
-                            I'm a software engineer specializing in building exceptional digital experiences. Currently, I'm focused on building accessible, human-centered products. When I'm not coding, I'm usually riding, working out, or playing badminton or football.
+                            I'm a software engineer specializing in designing and building robust backend scalable systems. Currently, I'm focused on creating performant, data-intensive APIs and reliable infrastructure. When I'm not architecting servers, I'm usually riding, working out, or playing badminton or football.
                         </p>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
                             <a href="#contact" className="btn" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>

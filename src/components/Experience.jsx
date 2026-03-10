@@ -30,9 +30,9 @@ const experiences = [
         role: "Personal Project",
         company: "Concurrent Event Streaming Platform (mini-Kafka)",
         description: [
-            "Built a Kafka-inspired distributed event streaming system in Java to understand real-world concurrency and partitioning models.",
+            "Built a Kafka-inspired distributed event streaming system in Java + gPRC streams to understand real-world concurrency and partitioning models.",
             "Achieved 100k+ events/min with in-memory append-only partition logs, tuned thread pools, and gRPC streaming (sub-5ms p50 latency).",
-            "Implemented consumer groups with independent offset tracking, partition-parallel fetch pipelines, and client-side backpressure.",
+            "Implemented consumer groups with independent offset tracking, partition-parallel fetch pipelines.",
             "Delivered a real-time monitoring UI (React + Server Sent Events) showing producer rate, per-partition throughput, and consumer lag.",
             "Containerized services with Docker and provided one-command demo scripts for reproducible local runs."
         ]
