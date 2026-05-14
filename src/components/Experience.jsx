@@ -7,12 +7,12 @@ const experiences = [
         company: "Vericap (Formerly EnverX)",
         period: "January 2024 - Present",
         description: [
-            "Designed and developed Microservices architecture with Node.js, improving scalability and reducing system response time by 35%.",
-            "Owned and delivered 4+ critical full-stack modules (frontend + APIs), managing end-to-end development with minimal supervision.",
-            "Integrated AWS services (S3, SNS, SES, Cognito) for storage, messaging, email automation, and authentication.",
-            "Extended and customized Strapi backend modules to support new business entities and REST endpoints.",
-            "Optimized frontend layer (React mono-repo architecture), reducing bundle size by 40% and improving load times by 25–30%.",
-            "Contributed to team scaling by interviewing 12+ candidates and designing a structured technical assessment process."
+            "Independently implemented 50+ REST API endpoints across core platform workflows — including project management, checklists, and authentication — owning the full stack from query design to service and controller logic in NestJS and TypeORM. ",
+            "Reduced project catalogue latency by 35% (1000ms → 650ms) across 35+ endpoints by parallelizing sequential DB calls with Promise.all and introducing Redis caching with write-through invalidation for read-heavy sections — cache expiry aligned to investor link validity window.",
+            "Integrated AWS SNS, SES, and Lambda to power core platform communication and document workflows — built a reusable email service over SES with console-managed templates, and offloaded zip file generation for document downloads to Lambda to keep response times fast.",
+            "Built the investor-facing project catalogue — an auth-gated one-pager with a custom permission engine that parsed nested JSON link permissions to conditionally render 12 sections as visible, hidden, or access-requested. ",
+            "Migrated frontend to a Turborepo monorepo with shared component packages — enabling UI components to be built once and consumed across both admin and user apps.",
+            "Reduced initial JS bundle size from 1MB+ to under 600kb across multiple routes by auditing Turborepo build output, removing unused dependencies, eliminating dead code, and lazy loading heavy modules."
         ]
     },
     {
