@@ -9,19 +9,21 @@ const Navbar = () => {
 
     const navLinks = [
         { name: 'Home', href: '#hero' },
+        { name: 'About', href: '#about' },
         { name: 'Experience', href: '#experience' },
+        { name: 'Projects', href: '#projects' },
         { name: 'Skills', href: '#skills' },
         { name: 'Contact', href: '#contact' },
     ];
 
     return (
         <nav style={{
-            position: 'fixed',
+            position: 'sticky',
             top: 0,
-            left: 0,
             width: '100%',
+            marginBottom: 'calc(var(--nav-height) * -1)',
             height: 'var(--nav-height)',
-            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+            backgroundColor: 'var(--nav-bg)',
             backdropFilter: 'blur(10px)',
             zIndex: 1000,
             display: 'flex',
@@ -72,7 +74,7 @@ const Navbar = () => {
             )}
 
             <style>{`
-        @media (max-width: 768px) {
+        @container (max-width: 700px) {
           .desktop-menu { display: none !important; }
           .mobile-toggle { display: block !important; }
         }

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 const skillCategories = [
     {
         title: "Programming Languages",
-        skills: ["TypeScript", "JavaScript", "Java (for DSA & LLD)"]
+        skills: ["TypeScript", "JavaScript", "Java"]
     },
     {
         title: "Frontend",
@@ -16,7 +16,7 @@ const skillCategories = [
     },
     {
         title: "Databases & Caching",
-        skills: ["PostgreSQL", "MongoDB", "Redis"]
+        skills: ["PostgreSQL", "MongoDB", "Redis", "Cloudflare D1"]
     },
     {
         title: "Version Control & Tools",
@@ -25,6 +25,10 @@ const skillCategories = [
     {
         title: "Cloud & DevOps",
         skills: ["AWS", "CI/CD (GitHub Actions, Docker Compose)"]
+    },
+    {
+        title: "Hosting & Deployment",
+        skills: ["Cloudflare (Workers)", "Vercel", "Netlify"]
     }
 ];
 
@@ -87,15 +91,13 @@ const SkillCard = ({ category, index }) => {
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             style={{
-                backgroundColor: 'rgba(10, 10, 10, 0.7)',
-                backdropFilter: 'blur(10px)',
-                WebkitBackdropFilter: 'blur(10px)',
-                padding: '2rem',
+                backgroundColor: 'var(--card-bg)',
+                                padding: '2rem',
                 borderRadius: '1rem',
-                border: '1px solid rgba(255, 255, 255, 0.15)',
+                border: '1px solid var(--card-border)',
                 position: 'relative',
                 overflow: 'hidden',
-                boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.37)'
+                boxShadow: 'var(--card-shadow)'
             }}
         >
             <div
@@ -107,7 +109,7 @@ const SkillCard = ({ category, index }) => {
                     width: '100%',
                     height: '100%',
                     opacity: opacity,
-                    background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(255,255,255,0.1), transparent 40%)`,
+                    background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(var(--accent-rgb),0.12), transparent 40%)`,
                     transition: 'opacity 0.15s ease',
                     zIndex: 1
                 }}
@@ -116,8 +118,8 @@ const SkillCard = ({ category, index }) => {
                 <h3 style={{
                     fontSize: '1.25rem',
                     marginBottom: '1.5rem',
-                    color: '#fff',
-                    borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+                    color: 'var(--text-color)',
+                    borderBottom: '1px solid var(--card-border)',
                     paddingBottom: '0.5rem'
                 }}>
                     {category.title}
@@ -127,13 +129,13 @@ const SkillCard = ({ category, index }) => {
                         <span
                             key={skill}
                             style={{
-                                backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                                color: '#ccc',
+                                backgroundColor: 'var(--chip-bg)',
+                                color: 'var(--muted)',
                                 padding: '0.5rem 1rem',
                                 borderRadius: '9999px',
                                 fontSize: '0.9rem',
                                 fontWeight: 500,
-                                border: '1px solid rgba(255, 255, 255, 0.1)'
+                                border: '1px solid var(--card-border)'
                             }}
                         >
                             {skill}

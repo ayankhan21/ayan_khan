@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 
 const experiences = [
@@ -24,17 +23,6 @@ const experiences = [
             "Developed and maintained 15+ reusable UI components using React, Redux, Formik, and Bootstrap.",
             "Refactored performance and reduced page load times by ~35% for core features like Wallet and Transactions.",
             "Applied clean code and modular design principles across 20+ files, contributing to a 25% reduction in reported UI bugs."
-        ]
-    },
-    {
-        role: "Personal Project",
-        company: "Concurrent Event Streaming Platform (mini-Kafka)",
-        description: [
-            "Built a Kafka-inspired distributed event streaming system in Java + gPRC streams to understand real-world concurrency and partitioning models.",
-            "Achieved 100k+ events/min with in-memory append-only partition logs, tuned thread pools, and gRPC streaming (sub-5ms p50 latency).",
-            "Implemented consumer groups with independent offset tracking, partition-parallel fetch pipelines.",
-            "Delivered a real-time monitoring UI (React + Server Sent Events) showing producer rate, per-partition throughput, and consumer lag.",
-            "Containerized services with Docker and provided one-command demo scripts for reproducible local runs."
         ]
     }
 ];
@@ -79,7 +67,7 @@ const Experience = () => {
                             <p style={{ color: 'var(--accent-color)', marginBottom: '0.5rem', fontWeight: 500 }}>
                                 {exp.company} {exp.company && exp.period && ' | '}{exp.period}
                             </p>
-                            <ul style={{ color: '#94a3b8', paddingLeft: '1.5rem', margin: 0 }}>
+                            <ul style={{ color: 'var(--muted)', paddingLeft: '1.5rem', margin: 0 }}>
                                 {exp.description.map((point, idx) => (
                                     <li key={idx} style={{ marginBottom: '0.5rem' }}>{point}</li>
                                 ))}

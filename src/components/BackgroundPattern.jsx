@@ -21,7 +21,7 @@ const BackgroundPattern = () => {
 
     return (
         <div style={{
-            position: 'fixed',
+            position: 'absolute',
             top: 0,
             left: 0,
             width: '100%',
@@ -40,8 +40,8 @@ const BackgroundPattern = () => {
                             top: item.top,
                             left: item.left,
                             transform: `rotate(${item.rotation}deg)`,
-                            opacity: 0.03,
-                            color: '#ffffff'
+                            opacity: 0.05,
+                            color: 'var(--text-color)'
                         }}
                     >
                         <IconComponent size={item.size} strokeWidth={1} />

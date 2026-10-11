@@ -1,12 +1,107 @@
 :root {
-  --bg-color: #000000;
-  --text-color: #ffffff;
-  --accent-color: #ffffff;
-  --secondary-bg: #0a0a0a;
-  --border-color: #333333;
   --font-main: 'Zalando Sans Expanded', sans-serif;
   --nav-height: 4rem;
-  --gradient-text: linear-gradient(to right, #ffffff, #666666);
+}
+
+/* ---------- Themes: Sunset (default) ---------- */
+:root,
+[data-theme='sunset'] {
+  --bg-color: #fbf6ee;
+  --text-color: #1f1a17;
+  --accent-color: #f0541e;
+  --accent-2: #6d5dfc;
+  --accent-rgb: 240, 84, 30;
+  --btn-text: #ffffff;
+  --secondary-bg: #f3ebde;
+  --border-color: #e2d6c4;
+  --muted: #5f564e;
+  --muted-2: #8a7f75;
+  --card-bg: rgba(255, 255, 255, 0.75);
+  --card-border: rgba(31, 26, 23, 0.12);
+  --chip-bg: rgba(240, 84, 30, 0.08);
+  --card-shadow: 0 8px 32px 0 rgba(90, 60, 30, 0.12);
+  --nav-bg: rgba(251, 246, 238, 0.85);
+  --scroll-thumb: rgba(31, 26, 23, 0.25);
+  --gradient-text: linear-gradient(to right, #f0541e, #6d5dfc);
+  --screen-bg: linear-gradient(160deg, #fbf6ee 0%, #fdeedd 55%, #f1ecff 100%);
+  --desk-bg: radial-gradient(circle at 15% 20%, #ffe3c9 0, transparent 45%), radial-gradient(circle at 85% 25%, #e3dcff 0, transparent 45%), radial-gradient(circle at 50% 100%, #c9f3ff 0, transparent 50%), #fff4e6;
+  --blob-a: #ffb88c;
+  --blob-b: #b8a9ff;
+}
+
+/* ---------- Ocean ---------- */
+[data-theme='ocean'] {
+  --bg-color: #f2fbff;
+  --text-color: #0c2230;
+  --accent-color: #0891b2;
+  --accent-2: #2563eb;
+  --accent-rgb: 8, 145, 178;
+  --btn-text: #ffffff;
+  --secondary-bg: #e0f2f9;
+  --border-color: #c3e3ef;
+  --muted: #3f5b6b;
+  --muted-2: #6f8a99;
+  --card-bg: rgba(255, 255, 255, 0.78);
+  --card-border: rgba(12, 34, 48, 0.12);
+  --chip-bg: rgba(8, 145, 178, 0.09);
+  --card-shadow: 0 8px 32px 0 rgba(10, 70, 100, 0.14);
+  --nav-bg: rgba(242, 251, 255, 0.85);
+  --scroll-thumb: rgba(12, 34, 48, 0.25);
+  --gradient-text: linear-gradient(to right, #0891b2, #2563eb);
+  --screen-bg: linear-gradient(160deg, #f2fbff 0%, #e3f6f4 55%, #e6eeff 100%);
+  --desk-bg: radial-gradient(circle at 15% 20%, #c9f3ff 0, transparent 45%), radial-gradient(circle at 85% 25%, #cfd9ff 0, transparent 45%), radial-gradient(circle at 50% 100%, #b9f5e4 0, transparent 50%), #e9f8ff;
+  --blob-a: #7dd3fc;
+  --blob-b: #86efac;
+}
+
+/* ---------- Berry ---------- */
+[data-theme='berry'] {
+  --bg-color: #fff5f8;
+  --text-color: #2a1220;
+  --accent-color: #e11d74;
+  --accent-2: #7c3aed;
+  --accent-rgb: 225, 29, 116;
+  --btn-text: #ffffff;
+  --secondary-bg: #fde7ef;
+  --border-color: #f3cadb;
+  --muted: #65415a;
+  --muted-2: #956f87;
+  --card-bg: rgba(255, 255, 255, 0.78);
+  --card-border: rgba(42, 18, 32, 0.12);
+  --chip-bg: rgba(225, 29, 116, 0.08);
+  --card-shadow: 0 8px 32px 0 rgba(130, 30, 80, 0.14);
+  --nav-bg: rgba(255, 245, 248, 0.85);
+  --scroll-thumb: rgba(42, 18, 32, 0.25);
+  --gradient-text: linear-gradient(to right, #e11d74, #7c3aed);
+  --screen-bg: linear-gradient(160deg, #fff5f8 0%, #ffe9f1 55%, #f3ebff 100%);
+  --desk-bg: radial-gradient(circle at 15% 20%, #ffd0e2 0, transparent 45%), radial-gradient(circle at 85% 25%, #e4d4ff 0, transparent 45%), radial-gradient(circle at 50% 100%, #ffe0c9 0, transparent 50%), #fff0f5;
+  --blob-a: #f9a8d4;
+  --blob-b: #c4b5fd;
+}
+
+/* ---------- Midnight (dark) ---------- */
+[data-theme='midnight'] {
+  --bg-color: #0b1020;
+  --text-color: #eef2ff;
+  --accent-color: #22d3ee;
+  --accent-2: #a78bfa;
+  --accent-rgb: 34, 211, 238;
+  --btn-text: #04121a;
+  --secondary-bg: #11172e;
+  --border-color: #232b4a;
+  --muted: #a9b3d4;
+  --muted-2: #7b86ab;
+  --card-bg: rgba(20, 28, 56, 0.7);
+  --card-border: rgba(255, 255, 255, 0.12);
+  --chip-bg: rgba(34, 211, 238, 0.1);
+  --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+  --nav-bg: rgba(11, 16, 32, 0.85);
+  --scroll-thumb: rgba(255, 255, 255, 0.25);
+  --gradient-text: linear-gradient(to right, #22d3ee, #a78bfa);
+  --screen-bg: linear-gradient(160deg, #0b1020 0%, #121a3a 55%, #1a1240 100%);
+  --desk-bg: radial-gradient(circle at 15% 20%, #1b2250 0, transparent 45%), radial-gradient(circle at 85% 25%, #2a1b4d 0, transparent 45%), radial-gradient(circle at 50% 100%, #0e3a4a 0, transparent 50%), #070b18;
+  --blob-a: #3b82f6;
+  --blob-b: #8b5cf6;
 }
 
 * {
@@ -53,7 +148,7 @@ ul {
 
 section {
   padding: 5rem 0;
-  min-height: 100vh;
+  min-height: 100cqh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -79,8 +174,8 @@ h2 {
 .btn {
   display: inline-block;
   padding: 0.8rem 1.5rem;
-  background-color: var(--text-color);
-  color: var(--bg-color);
+  background-color: var(--accent-color);
+  color: var(--btn-text);
   border-radius: 0.5rem;
   font-weight: 600;
   transition: transform 0.2s, opacity 0.2s;
@@ -97,14 +192,14 @@ h2 {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--bg-color);
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #333;
+  background: var(--scroll-thumb);
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: var(--scroll-thumb);
 }

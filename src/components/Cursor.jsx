@@ -72,7 +72,7 @@ const Cursor = () => {
                     left: 0,
                     width: '8px',
                     height: '8px',
-                    backgroundColor: '#fff',
+                    backgroundColor: 'var(--accent-color)',
                     borderRadius: '50%',
                     pointerEvents: 'none',
                     zIndex: 10001,

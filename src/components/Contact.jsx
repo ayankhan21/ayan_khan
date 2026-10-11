@@ -17,7 +17,7 @@ const Contact = () => {
                         maxWidth: '600px',
                         margin: '0 auto 3rem',
                         fontSize: '1.2rem',
-                        color: '#94a3b8'
+                        color: 'var(--muted)'
                     }}>
                         I'm currently looking for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
                     </p>
@@ -36,7 +36,7 @@ const Contact = () => {
             </div>
 
             <style>{`
-                @media (max-width: 768px) {
+                @container (max-width: 700px) {
                     .contact-buttons {
                         flex-direction: column !important;
                     }

@@ -1,19 +1,18 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, FileText } from 'lucide-react';
-import profileImage from '../assets/Snapseed.webp';
+import profileImage from '../assets/Profile.webp';
 
 const Hero = () => {
     return (
         <section id="hero" style={{ paddingTop: 'var(--nav-height)' }}>
-            <div className="container">
+            <div className="container" style={{ maxWidth: '1600px' }}>
                 <div style={{
                     display: 'flex',
                     flexDirection: 'row',
                     alignItems: 'center',
-                    justifyContent: 'space-between',
+                    justifyContent: 'space-around',
                     gap: '4rem',
-                    minHeight: '80vh'
+                    minHeight: '75cqh'
                 }} className="hero-content">
 
                     {/* Text Content */}
@@ -21,7 +20,7 @@ const Hero = () => {
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5 }}
-                        style={{ flex: 1 }}
+                        style={{ flex: '0 1 600px' }}
                     >
                         <h2 style={{
                             fontSize: 'clamp(3rem, 6vw, 5rem)',
@@ -29,7 +28,7 @@ const Hero = () => {
                             marginBottom: '0.5rem',
                             fontWeight: 800,
                             letterSpacing: '-0.02em',
-                            background: 'linear-gradient(to right, #ffffff, #a0a0a0)',
+                            background: 'var(--gradient-text)',
                             WebkitBackgroundClip: 'text',
                             WebkitTextFillColor: 'transparent',
                             backgroundClip: 'text',
@@ -39,17 +38,17 @@ const Hero = () => {
                         </h2>
                         <h3 style={{
                             fontSize: 'clamp(1.5rem, 3vw, 2.5rem)',
-                            color: '#888',
+                            color: 'var(--muted-2)',
                             marginBottom: '2rem',
                             fontWeight: 400,
                             textAlign: 'left'
                         }}>
-                            Building scalable backend systems.
+                            Building scalable systems.
                         </h3>
                         <p style={{
                             maxWidth: '600px',
                             fontSize: '1.1rem',
-                            color: '#aaa',
+                            color: 'var(--muted)',
                             marginBottom: '3rem',
                             lineHeight: 1.8
                         }}>
@@ -71,8 +70,8 @@ const Hero = () => {
                                     width: '50px',
                                     height: '50px',
                                     borderRadius: '50%',
-                                    border: '2px solid rgba(255, 255, 255, 0.2)',
-                                    color: '#fff',
+                                    border: '2px solid var(--card-border)',
+                                    color: 'var(--text-color)',
                                     transition: 'all 0.3s ease',
                                     cursor: 'pointer',
                                     textDecoration: 'none'
@@ -105,18 +104,19 @@ const Hero = () => {
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5, delay: 0.2 }}
-                        style={{ flex: 1, display: 'flex', justifyContent: 'center' }}
+                        style={{ flex: '0 1 auto', display: 'flex', justifyContent: 'center' }}
                     >
                         <img
                             src={profileImage}
                             alt="Ayan Khan"
                             style={{
-                                width: '450px',
-                                height: '450px',
+                                width: 'min(900px, 58cqh)',
+                                maxWidth: '100%',
+                                height: 'auto',
+                                aspectRatio: '3 / 4',
                                 borderRadius: '20px',
-                                objectFit: 'contain',
-                                boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.5)',
-                                filter: 'grayscale(90%)'
+                                objectFit: 'cover',
+                                boxShadow: 'var(--card-shadow)'
                             }}
                         />
                     </motion.div>
@@ -125,19 +125,23 @@ const Hero = () => {
 
             <style>{`
         .resume-btn:hover {
-          border-color: rgba(255, 255, 255, 0.6) !important;
-          background-color: rgba(255, 255, 255, 0.1) !important;
+          border-color: var(--accent-color) !important;
+          background-color: rgba(var(--accent-rgb), 0.1) !important;
         }
         
         .resume-btn:hover .resume-tooltip {
           opacity: 1 !important;
         }
         
-        @media (max-width: 768px) {
+        @container (max-width: 700px) {
           .hero-content {
             flex-direction: column-reverse !important;
             text-align: center;
             justify-content: center;
+          }
+          .hero-content > div {
+            flex: 0 0 auto !important;
+            width: 100%;
           }
           .hero-content h2, .hero-content h3 {
             text-align: center !important;
@@ -149,8 +153,9 @@ const Hero = () => {
             justify-content: center !important;
           }
           .hero-content img {
-            width: 300px !important;
-            height: 300px !important;
+            width: 100% !important;
+            max-width: 400px !important;
+            height: auto !important;
           }
         }
       `}</style>
