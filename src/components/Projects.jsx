@@ -17,6 +17,22 @@ const projects = [
         links: []
     },
     {
+        title: 'ClipBridge',
+        tagline: 'Copy on my iPhone, paste on my Windows machine, all over the local network.',
+        tags: ['TypeScript', 'Node.js', 'Fastify', 'HTTP/TCP', 'iOS Shortcuts', 'Windows'],
+        why: 'I wanted to move whatever I copied on my iPhone to my Windows machine without routing it through cloud services or third-party storage.',
+        decisions: [
+            'Trigger an iOS Shortcut with Back Tap, which detects the clipboard content and sends it over the LAN to a Fastify server running on Windows.',
+            'Write text and images straight to the Windows clipboard, and save PDFs and other files locally.',
+            'Use HTTP over TCP for reliable transfer, and handle raw binary payloads.',
+            'Authenticate every request with a shared secret token.',
+            'Keep the architecture intentionally minimal: no database, no cloud backend, no user accounts.'
+        ],
+        links: [
+            { label: 'Code', href: 'https://github.com/ayankhan21/clipbridge', icon: Github }
+        ]
+    },
+    {
         title: 'SQL Visualizer',
         tagline: 'Watch a SQL query execute, step by step.',
         tags: ['Google AI Studio', 'Cloudflare Workers', 'SQL'],
