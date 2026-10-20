@@ -1,30 +1,54 @@
-import { motion } from 'framer-motion';
+import { useEffect, useRef } from 'react';
 
 // Renders the whole site inside a device screen that matches the viewport:
 //   >= 1025px  laptop      601-1024px  tablet (iPad-style, portrait)      <= 600px  phone
 // The page itself never scrolls; the content scrolls inside .device-screen.
 // The glass is a size container, so sections use cqh units to fill the screen and components use
-// @container queries (not @media) to adapt to the device's screen width.
+// the [data-compact] flag on .device-glass (not @media) to adapt to the device's screen width.
+// [data-compact] means "use the stacked/mobile layout": a tablet or phone screen at <= 700px, but a laptop
+// screen only at <= 480px, so short laptop windows keep the desktop layout.
+const LAPTOP_COMPACT_MAX = 480;
+const TOUCH_COMPACT_MAX = 700;
+// Laptop screens narrower than LAPTOP_FULL_WIDTH shrink the root font size, down to LAPTOP_MIN_SCALE of 16px.
+const LAPTOP_FULL_WIDTH = 1000;
+const LAPTOP_MIN_SCALE = 0.72;
+
 const DeviceFrame = ({ backdrop, children }) => {
+    const glassRef = useRef(null);
+
+    useEffect(() => {
+        const glass = glassRef.current;
+        if (!glass) return;
+        const root = document.documentElement;
+        const update = () => {
+            const isLaptop = window.innerWidth > 1024;
+            const max = isLaptop ? LAPTOP_COMPACT_MAX : TOUCH_COMPACT_MAX;
+            glass.toggleAttribute('data-compact', glass.clientWidth <= max);
+            // Scale rem-based text and spacing with a small laptop screen. The frame is sized in px, not rem,
+            // so changing the root font size cannot feed back into the screen width.
+            const scale = Math.min(1, Math.max(LAPTOP_MIN_SCALE, glass.clientWidth / LAPTOP_FULL_WIDTH));
+            root.style.fontSize = isLaptop ? `${16 * scale}px` : '';
+        };
+        const observer = new ResizeObserver(update);
+        observer.observe(glass);
+        window.addEventListener('resize', update);
+        update();
+        return () => {
+            observer.disconnect();
+            window.removeEventListener('resize', update);
+            root.style.fontSize = '';
+        };
+    }, []);
+
     return (
         <div className="device-desk">
-            <motion.div
-                className="desk-blob"
-                style={{ top: '-10%', left: '-8%', background: 'var(--blob-a)' }}
-                animate={{ x: [0, 80, 0], y: [0, 50, 0] }}
-                transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
-            />
-            <motion.div
-                className="desk-blob"
-                style={{ bottom: '-12%', right: '-6%', background: 'var(--blob-b)' }}
-                animate={{ x: [0, -70, 0], y: [0, -40, 0] }}
-                transition={{ duration: 22, repeat: Infinity, ease: 'easeInOut' }}
-            />
+            <span className="label desk-tag"><span className="tag">Index</span> / Portfolio</span>
+            <span className="label desk-tag desk-tag-right">Ayan Khan / V2</span>
 
             <div className="device">
                 <div className="device-lid">
                     <span className="device-camera" />
-                    <div className="device-glass">
+                    <div className="device-glass" ref={glassRef}>
                         {backdrop}
                         <div className="device-screen">{children}</div>
                         <span className="device-island" />
@@ -44,22 +68,28 @@ const DeviceFrame = ({ backdrop, children }) => {
           align-items: center;
           justify-content: center;
           overflow: hidden;
-          background: var(--desk-bg);
+          background-color: var(--secondary-bg);
+          background-image:
+            linear-gradient(rgba(var(--accent-rgb), 0.12) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(var(--accent-rgb), 0.12) 1px, transparent 1px);
+          background-size: 48px 48px;
         }
 
-        .desk-blob {
+        .desk-tag {
           position: absolute;
-          width: 38vw;
-          height: 38vw;
-          border-radius: 50%;
-          filter: blur(90px);
-          opacity: 0.45;
-          pointer-events: none;
+          top: 1rem;
+          left: 1.5rem;
+          color: var(--text-color);
         }
+
+        .desk-tag-right { left: auto; right: 1.5rem; }
+
+        @media (max-width: 1024px) { .desk-tag { display: none; } }
 
         /* ---------- Laptop (default) ---------- */
         .device {
-          --w: min(92vw, calc((100vh - 9rem) * 1.6));
+          /* Fill the window height: screen height = (w - 28px) / 1.6, plus 48px of lid and base, 20px margins */
+          --w: min(94vw, calc((100vh - 88px) * 1.6 + 28px));
           position: relative;
           width: var(--w);
         }

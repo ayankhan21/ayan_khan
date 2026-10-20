@@ -23,12 +23,11 @@ const Navbar = () => {
             width: '100%',
             marginBottom: 'calc(var(--nav-height) * -1)',
             height: 'var(--nav-height)',
-            backgroundColor: 'var(--nav-bg)',
-            backdropFilter: 'blur(10px)',
+            backgroundColor: 'var(--bg-color)',
             zIndex: 1000,
             display: 'flex',
             alignItems: 'center',
-            borderBottom: '1px solid var(--secondary-bg)'
+            borderBottom: 'var(--ink-border)'
         }}>
             <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
                 <a href="#" style={{ fontSize: '1.5rem', fontWeight: 'bold', color: 'var(--accent-color)' }}></a>
@@ -37,7 +36,7 @@ const Navbar = () => {
                 <ul style={{ display: 'flex', gap: '2rem' }} className="desktop-menu">
                     {navLinks.map((link) => (
                         <li key={link.name}>
-                            <a href={link.href} style={{ fontSize: '1rem', fontWeight: 500, transition: 'color 0.3s' }} className="nav-link">
+                            <a href={link.href} className="nav-link label">
                                 {link.name}
                             </a>
                         </li>
@@ -74,11 +73,10 @@ const Navbar = () => {
             )}
 
             <style>{`
-        @container (max-width: 700px) {
-          .desktop-menu { display: none !important; }
-          .mobile-toggle { display: block !important; }
-        }
-        .nav-link:hover { color: var(--accent-color); }
+        .device-glass[data-compact] .desktop-menu { display: none !important; }
+        .device-glass[data-compact] .mobile-toggle { display: block !important; }
+        .nav-link { padding: 0.25rem 0.5rem; border: 2px solid transparent; }
+        .nav-link:hover { background: var(--accent-color); color: var(--btn-text); border-color: var(--text-color); }
       `}</style>
         </nav>
     );

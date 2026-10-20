@@ -36,6 +36,9 @@ const Skills = () => {
     return (
         <section id="skills" style={{ backgroundColor: 'var(--secondary-bg)' }}>
             <div className="container">
+                <p className="label" style={{ textAlign: 'center', marginBottom: '0.75rem' }}>
+                    <span className="tag">Index</span> / Skills
+                </p>
                 <motion.h2
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -92,12 +95,12 @@ const SkillCard = ({ category, index }) => {
             onMouseLeave={handleMouseLeave}
             style={{
                 backgroundColor: 'var(--card-bg)',
-                                padding: '2rem',
-                borderRadius: '1rem',
-                border: '1px solid var(--card-border)',
+                padding: '2rem',
+                borderRadius: 0,
+                border: 'var(--ink-border)',
                 position: 'relative',
                 overflow: 'hidden',
-                boxShadow: 'var(--card-shadow)'
+                boxShadow: 'var(--hard-shadow)'
             }}
         >
             <div
@@ -116,10 +119,13 @@ const SkillCard = ({ category, index }) => {
             />
             <div style={{ position: 'relative', zIndex: 2 }}>
                 <h3 style={{
-                    fontSize: '1.25rem',
+                    fontFamily: 'var(--font-display)',
+                    fontWeight: 400,
+                    textTransform: 'uppercase',
+                    fontSize: '1.6rem',
                     marginBottom: '1.5rem',
                     color: 'var(--text-color)',
-                    borderBottom: '1px solid var(--card-border)',
+                    borderBottom: 'var(--ink-border)',
                     paddingBottom: '0.5rem'
                 }}>
                     {category.title}
@@ -128,14 +134,13 @@ const SkillCard = ({ category, index }) => {
                     {category.skills.map((skill) => (
                         <span
                             key={skill}
+                            className="label"
                             style={{
-                                backgroundColor: 'var(--chip-bg)',
-                                color: 'var(--muted)',
-                                padding: '0.5rem 1rem',
-                                borderRadius: '9999px',
-                                fontSize: '0.9rem',
-                                fontWeight: 500,
-                                border: '1px solid var(--card-border)'
+                                backgroundColor: 'var(--bg-color)',
+                                color: 'var(--text-color)',
+                                padding: '0.4rem 0.75rem',
+                                borderRadius: 0,
+                                border: 'var(--ink-border)'
                             }}
                         >
                             {skill}

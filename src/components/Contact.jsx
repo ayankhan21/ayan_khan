@@ -12,7 +12,10 @@ const Contact = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
                 >
-                    <h2>Get In Touch</h2>
+                    <p className="label" style={{ marginBottom: '0.75rem' }}>
+                        <span className="tag">Index</span> / Contact
+                    </p>
+                    <h2 style={{ marginBottom: '1rem' }}>Get In <span className="outline-text">Touch</span></h2>
                     <p style={{
                         maxWidth: '600px',
                         margin: '0 auto 3rem',
@@ -36,10 +39,8 @@ const Contact = () => {
             </div>
 
             <style>{`
-                @container (max-width: 700px) {
-                    .contact-buttons {
-                        flex-direction: column !important;
-                    }
+                .device-glass[data-compact] .contact-buttons {
+                    flex-direction: column !important;
                 }
             `}</style>
         </section>

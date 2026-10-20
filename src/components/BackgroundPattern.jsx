@@ -1,24 +1,7 @@
 import React from 'react';
-import { Code2, Database, GitBranch, Terminal, Cpu, Layers, Box, Braces, FileCode, Server } from 'lucide-react';
 
+// Flat editorial backdrop: a faint grid plus a tilted band of stripes in the theme's secondary accent.
 const BackgroundPattern = () => {
-    const icons = [
-        { Icon: Code2, top: '10%', left: '5%', size: 50, rotation: 15 },
-        { Icon: Database, top: '20%', left: '85%', size: 40, rotation: -20 },
-        { Icon: GitBranch, top: '35%', left: '10%', size: 45, rotation: 25 },
-        { Icon: Terminal, top: '45%', left: '90%', size: 48, rotation: -15 },
-        { Icon: Cpu, top: '60%', left: '8%', size: 42, rotation: 10 },
-        { Icon: Layers, top: '70%', left: '88%', size: 45, rotation: -25 },
-        { Icon: Box, top: '80%', left: '15%', size: 40, rotation: 20 },
-        { Icon: Braces, top: '15%', left: '50%', size: 38, rotation: -10 },
-        { Icon: FileCode, top: '55%', left: '50%', size: 42, rotation: 15 },
-        { Icon: Server, top: '90%', left: '75%', size: 45, rotation: -20 },
-        { Icon: Code2, top: '25%', left: '30%', size: 35, rotation: -30 },
-        { Icon: Database, top: '75%', left: '60%', size: 38, rotation: 25 },
-        { Icon: GitBranch, top: '40%', left: '70%', size: 40, rotation: -15 },
-        { Icon: Terminal, top: '65%', left: '35%', size: 42, rotation: 20 },
-    ];
-
     return (
         <div style={{
             position: 'absolute',
@@ -28,26 +11,24 @@ const BackgroundPattern = () => {
             height: '100%',
             pointerEvents: 'none',
             zIndex: 0,
-            overflow: 'hidden'
+            overflow: 'hidden',
+            backgroundImage:
+                'linear-gradient(rgba(var(--accent-rgb), 0.10) 1px, transparent 1px), linear-gradient(90deg, rgba(var(--accent-rgb), 0.10) 1px, transparent 1px)',
+            backgroundSize: '48px 48px'
         }}>
-            {icons.map((item, index) => {
-                const IconComponent = item.Icon;
-                return (
-                    <div
-                        key={index}
-                        style={{
-                            position: 'absolute',
-                            top: item.top,
-                            left: item.left,
-                            transform: `rotate(${item.rotation}deg)`,
-                            opacity: 0.05,
-                            color: 'var(--text-color)'
-                        }}
-                    >
-                        <IconComponent size={item.size} strokeWidth={1} />
-                    </div>
-                );
-            })}
+            <div style={{
+                position: 'absolute',
+                left: '-10%',
+                bottom: '8%',
+                width: '60%',
+                height: '28%',
+                transform: 'rotate(-12deg)',
+                opacity: 0.35,
+                backgroundImage:
+                    'repeating-linear-gradient(to bottom, var(--accent-2) 0, var(--accent-2) 26px, transparent 26px, transparent 30px)',
+                borderTop: 'var(--ink-border)',
+                borderBottom: 'var(--ink-border)'
+            }} />
         </div>
     );
 };

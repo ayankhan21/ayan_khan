@@ -31,6 +31,9 @@ const Experience = () => {
     return (
         <section id="experience">
             <div className="container">
+                <p className="label" style={{ textAlign: 'center', marginBottom: '0.75rem' }}>
+                    <span className="tag">Index</span> / Experience
+                </p>
                 <motion.h2
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -49,23 +52,24 @@ const Experience = () => {
                             transition={{ duration: 0.5, delay: index * 0.2 }}
                             style={{
                                 marginBottom: '3rem',
-                                borderLeft: '2px solid var(--accent-color)',
-                                paddingLeft: '2rem',
+                                padding: '1.75rem 2rem',
+                                background: 'var(--card-bg)',
+                                border: 'var(--ink-border)',
+                                boxShadow: 'var(--hard-shadow)',
                                 position: 'relative'
                             }}
                         >
-                            <div style={{
+                            <span className="tag" style={{
                                 position: 'absolute',
-                                left: '-9px',
-                                top: 0,
-                                width: '16px',
-                                height: '16px',
-                                borderRadius: '50%',
-                                backgroundColor: 'var(--accent-color)'
-                            }}></div>
-                            <h3 style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>{exp.role}</h3>
-                            <p style={{ color: 'var(--accent-color)', marginBottom: '0.5rem', fontWeight: 500 }}>
-                                {exp.company} {exp.company && exp.period && ' | '}{exp.period}
+                                top: '-0.9rem',
+                                left: '1.25rem',
+                                background: 'var(--accent-color)',
+                                color: 'var(--btn-text)',
+                                border: 'var(--ink-border)'
+                            }}>{String(index + 1).padStart(2, '0')}</span>
+                            <h3 style={{ fontFamily: 'var(--font-display)', fontWeight: 400, textTransform: 'uppercase', fontSize: '2rem', marginBottom: '0.5rem' }}>{exp.role}</h3>
+                            <p className="label" style={{ display: 'inline-block', background: 'var(--accent-2)', border: 'var(--ink-border)', padding: '0.25rem 0.6rem', marginBottom: '1rem' }}>
+                                {exp.company} {exp.company && exp.period && ' / '}{exp.period}
                             </p>
                             <ul style={{ color: 'var(--muted)', paddingLeft: '1.5rem', margin: 0 }}>
                                 {exp.description.map((point, idx) => (

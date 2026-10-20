@@ -7,7 +7,6 @@ import Experience from './components/Experience';
 import Projects from './components/Projects';
 // import Strengths from './components/Strengths';
 import Contact from './components/Contact';
-import Cursor from './components/Cursor';
 import BackgroundPattern from './components/BackgroundPattern';
 import DeviceFrame from './components/DeviceFrame';
 
@@ -40,7 +39,6 @@ function App() {
           background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(var(--accent-rgb),0.1), transparent 40%)`
         }}
       />
-      <Cursor />
       <DeviceFrame backdrop={<BackgroundPattern />}>
         <Navbar />
         <main>

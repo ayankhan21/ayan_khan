@@ -98,12 +98,12 @@ const ProjectCard = ({ project, index }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            whileHover={{ y: -4 }}
+            whileHover={{ x: 3, y: 3, boxShadow: '3px 3px 0 var(--text-color)' }}
             style={{
                 backgroundColor: 'var(--card-bg)',
-                border: '1px solid var(--card-border)',
-                borderRadius: '1rem',
-                boxShadow: 'var(--card-shadow)',
+                border: 'var(--ink-border)',
+                borderRadius: 0,
+                boxShadow: 'var(--hard-shadow)',
                 overflow: 'hidden'
             }}
         >
@@ -124,17 +124,18 @@ const ProjectCard = ({ project, index }) => {
                 }}
             >
                 <div>
-                    <h3 style={{ fontSize: '1.5rem', marginBottom: '0.25rem' }}>{project.title}</h3>
+                    <p className="label" style={{ marginBottom: '0.5rem' }}>
+                        <span className="tag">{String(index + 1).padStart(2, '0')}</span>
+                    </p>
+                    <h3 style={{ fontFamily: 'var(--font-display)', fontWeight: 400, textTransform: 'uppercase', fontSize: '1.9rem', marginBottom: '0.25rem' }}>{project.title}</h3>
                     <p style={{ color: 'var(--muted)', marginBottom: '0.75rem' }}>{project.tagline}</p>
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-                        {project.tags.map((tag) => (
-                            <span key={tag} style={{
-                                fontSize: '0.8rem',
-                                color: 'var(--muted)',
-                                padding: '0.25rem 0.75rem',
-                                borderRadius: '9999px',
-                                border: '1px solid var(--card-border)',
-                                backgroundColor: 'var(--chip-bg)'
+                        {project.tags.map((tag, i) => (
+                            <span key={tag} className="label" style={{
+                                color: 'var(--text-color)',
+                                padding: '0.2rem 0.6rem',
+                                border: 'var(--ink-border)',
+                                backgroundColor: i % 2 ? 'var(--accent-2)' : 'var(--bg-color)'
                             }}>{tag}</span>
                         ))}
                     </div>
@@ -153,7 +154,7 @@ const ProjectCard = ({ project, index }) => {
                         transition={{ duration: 0.4, ease: 'easeInOut' }}
                         style={{ overflow: 'hidden' }}
                     >
-                        <div style={{ padding: '0 1.75rem 1.75rem', borderTop: '1px solid var(--card-border)' }}>
+                        <div style={{ padding: '0 1.75rem 1.75rem', borderTop: 'var(--ink-border)' }}>
                             <h4 style={{ margin: '1.5rem 0 0.5rem', color: 'var(--text-color)' }}>Why I built it</h4>
                             <p style={{ color: 'var(--muted)' }}>{project.why}</p>
 
@@ -193,6 +194,9 @@ const Projects = () => {
     return (
         <section id="projects">
             <div className="container">
+                <p className="label" style={{ textAlign: 'center', marginBottom: '0.75rem' }}>
+                    <span className="tag">Index</span> / Projects
+                </p>
                 <motion.h2
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
