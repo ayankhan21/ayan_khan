@@ -117,6 +117,9 @@ const Hero = () => {
                         <img
                             src={profileImage}
                             alt="Ayan Khan"
+                            loading="eager"
+                            fetchPriority="high"
+                            decoding="async"
                             style={{
                                 width: 'min(900px, 58vh)',
                                 maxWidth: '100%',
