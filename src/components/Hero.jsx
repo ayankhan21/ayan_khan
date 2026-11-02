@@ -12,7 +12,7 @@ const Hero = () => {
                     alignItems: 'center',
                     justifyContent: 'space-around',
                     gap: '4rem',
-                    minHeight: '75cqh'
+                    minHeight: '75vh'
                 }} className="hero-content">
 
                     {/* Text Content */}
@@ -26,7 +26,7 @@ const Hero = () => {
                             <span className="tag">Index</span> / Software Engineer Portfolio
                         </p>
                         <h2 style={{
-                            fontSize: 'clamp(4rem, 12cqw, 9rem)',
+                            fontSize: 'clamp(4rem, 12vw, 9rem)',
                             textAlign: 'left',
                             marginBottom: '0.5rem',
                             lineHeight: 0.9
@@ -118,7 +118,7 @@ const Hero = () => {
                             src={profileImage}
                             alt="Ayan Khan"
                             style={{
-                                width: 'min(900px, 58cqh)',
+                                width: 'min(900px, 58vh)',
                                 maxWidth: '100%',
                                 height: 'auto',
                                 aspectRatio: '3 / 4',
@@ -142,29 +142,31 @@ const Hero = () => {
           opacity: 1 !important;
         }
         
-        .device-glass[data-compact] .hero-content {
-          flex-direction: column-reverse !important;
-          text-align: center;
-          justify-content: center;
-        }
-        .device-glass[data-compact] .hero-content > div {
-          flex: 0 0 auto !important;
-          width: 100%;
-        }
-        .device-glass[data-compact] .hero-content h2,
-        .device-glass[data-compact] .hero-content h3 {
-          text-align: center !important;
-        }
-        .device-glass[data-compact] .hero-content p {
-          margin: 0 auto 3rem;
-        }
-        .device-glass[data-compact] .hero-content > div > div {
-          justify-content: center !important;
-        }
-        .device-glass[data-compact] .hero-content img {
-          width: 100% !important;
-          max-width: 400px !important;
-          height: auto !important;
+        @media (max-width: 700px) {
+          .hero-content {
+            flex-direction: column-reverse !important;
+            text-align: center;
+            justify-content: center;
+          }
+          .hero-content > div {
+            flex: 0 0 auto !important;
+            width: 100%;
+          }
+          .hero-content h2,
+          .hero-content h3 {
+            text-align: center !important;
+          }
+          .hero-content p {
+            margin: 0 auto 3rem;
+          }
+          .hero-content > div > div {
+            justify-content: center !important;
+          }
+          .hero-content img {
+            width: 100% !important;
+            max-width: 400px !important;
+            height: auto !important;
+          }
         }
       `}</style>
         </section>

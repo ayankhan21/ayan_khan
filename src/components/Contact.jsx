@@ -39,8 +39,10 @@ const Contact = () => {
             </div>
 
             <style>{`
-                .device-glass[data-compact] .contact-buttons {
-                    flex-direction: column !important;
+                @media (max-width: 700px) {
+                    .contact-buttons {
+                        flex-direction: column !important;
+                    }
                 }
             `}</style>
         </section>

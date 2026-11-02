@@ -1,11 +1,13 @@
 import { motion } from 'framer-motion';
-import { Bike, Utensils, Dumbbell, Trophy } from 'lucide-react';
+import { Bike, Utensils, Dumbbell, Trophy, Waves, Plane } from 'lucide-react';
 
 const beyondCode = [
     { icon: Trophy, title: 'Badminton', text: 'Fast rallies, zero screens. My favourite way to switch off.' },
     { icon: Bike, title: 'Riding', text: 'Long rides to clear my head and find the next good view.' },
     { icon: Utensils, title: 'Food', text: 'I like eating well, and I will happily plan a day around a meal.' },
-    { icon: Dumbbell, title: 'Working out & football', text: 'Staying active keeps me sharp when I am back at the keyboard.' }
+    { icon: Dumbbell, title: 'Working out & football', text: 'Staying active keeps me sharp when I am back at the keyboard.' },
+    { icon: Waves, title: 'Swimming', text: 'Quiet laps in the water to reset my head and stay fit.' },
+    { icon: Plane, title: 'Travelling', text: 'New places, new food, and a fresh perspective every time I go.' }
 ];
 
 const About = () => {
@@ -59,14 +61,14 @@ const About = () => {
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
                     className="outline-text"
-                    style={{ textAlign: 'center', fontFamily: 'var(--font-display)', fontWeight: 400, fontSize: 'clamp(1.75rem, 5cqw, 3rem)', marginBottom: '2rem' }}
+                    style={{ textAlign: 'center', fontFamily: 'var(--font-display)', fontWeight: 400, fontSize: 'clamp(1.75rem, 5vw, 3rem)', marginBottom: '2rem' }}
                 >
                     When I'm not building software
                 </motion.h3>
 
                 <div style={{
                     display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(max(240px, calc((100% - 3rem) / 3)), 1fr))',
                     gap: '1.5rem'
                 }}>
                     {beyondCode.map(({ icon: Icon, title, text }, index) => (

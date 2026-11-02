@@ -73,8 +73,10 @@ const Navbar = () => {
             )}
 
             <style>{`
-        .device-glass[data-compact] .desktop-menu { display: none !important; }
-        .device-glass[data-compact] .mobile-toggle { display: block !important; }
+        @media (max-width: 700px) {
+          .desktop-menu { display: none !important; }
+          .mobile-toggle { display: block !important; }
+        }
         .nav-link { padding: 0.25rem 0.5rem; border: 2px solid transparent; }
         .nav-link:hover { background: var(--accent-color); color: var(--btn-text); border-color: var(--text-color); }
       `}</style>

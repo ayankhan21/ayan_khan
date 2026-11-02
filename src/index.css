@@ -1,7 +1,8 @@
 :root {
-  --font-main: 'Zalando Sans Expanded', sans-serif;
+  --font-main: 'Barlow', 'Helvetica Neue', Arial, sans-serif;
   --font-display: 'Anton', 'Impact', sans-serif;
   --font-mono: 'Space Mono', ui-monospace, monospace;
+  --font-hand: 'Permanent Marker', 'Marker Felt', cursive;
   --nav-height: 4rem;
   /* Hard-edged "editorial" look: square corners, solid ink borders, offset shadows */
   --border-w: 2px;
@@ -11,9 +12,38 @@
   --cursor-black: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M3 2v18l5-4.5 3.5 6.5 3-1.5L11 14.5h7z' fill='black'/%3E%3C/svg%3E") 3 2, auto;
 }
 
-/* ---------- Themes: Sunset (default) ---------- */
+/* ---------- Themes: Fridge (default) ----------
+   Inspired by indiranagar-room.pages.dev: brushed steel, paper notes, marker ink, racing-red accent. */
 :root,
+[data-theme='fridge'] {
+  --hard-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 10px 24px -8px rgba(0, 0, 0, 0.35);
+  --bg-color: #f6f4ee;
+  --text-color: #16191b;
+  --accent-color: #d7261e;
+  --accent-2: #2f5bd3;
+  --accent-rgb: 215, 38, 30;
+  --btn-text: #f6f4ee;
+  --secondary-bg: #c7cbcd;
+  --border-color: #d9d5c8;
+  --muted: #4a5155;
+  --muted-2: #6b7377;
+  --card-bg: #f6f4ee;
+  --card-border: rgba(22, 25, 27, 0.14);
+  --chip-bg: rgba(215, 38, 30, 0.08);
+  --card-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 10px 24px -8px rgba(0, 0, 0, 0.35);
+  --nav-bg: rgba(246, 244, 238, 0.9);
+  --scroll-thumb: rgba(22, 25, 27, 0.3);
+  --gradient-text: linear-gradient(to right, #d7261e, #d7261e);
+  --screen-bg: #e9e7e0;
+  --desk-bg: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.07) 0 1px, transparent 1px 3px), repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.035) 0 1px, transparent 1px 7px), linear-gradient(100deg, #d4d8da 0%, #c7cbcd 35%, #b8bdc0 60%, #d0d4d6 100%);
+  --blob-a: #e2d3a8;
+  --blob-b: #d7261e;
+  --tape: #e2d3a8;
+}
+
+/* ---------- Sunset ---------- */
 [data-theme='sunset'] {
+  --hard-shadow: 6px 6px 0 var(--text-color);
   --bg-color: #fbf6ee;
   --text-color: #1f1a17;
   --accent-color: #f0541e;
@@ -39,6 +69,7 @@
 
 /* ---------- Ocean ---------- */
 [data-theme='ocean'] {
+  --hard-shadow: 6px 6px 0 var(--text-color);
   --bg-color: #f2fbff;
   --text-color: #0c2230;
   --accent-color: #0891b2;
@@ -64,6 +95,7 @@
 
 /* ---------- Berry ---------- */
 [data-theme='berry'] {
+  --hard-shadow: 6px 6px 0 var(--text-color);
   --bg-color: #fff5f8;
   --text-color: #2a1220;
   --accent-color: #e11d74;
@@ -89,6 +121,7 @@
 
 /* ---------- Midnight (dark) ---------- */
 [data-theme='midnight'] {
+  --hard-shadow: 6px 6px 0 var(--text-color);
   --bg-color: #0b1020;
   --text-color: #eef2ff;
   --accent-color: #22d3ee;
@@ -132,7 +165,6 @@ body {
 
 html,
 body,
-.device-screen,
 a,
 button,
 .btn {
@@ -149,15 +181,16 @@ ul {
 }
 
 .container {
+  /* sections are flex columns, where auto margins would otherwise shrink this to its content's width */
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  /* cqw resolves against the device screen, so side padding shrinks on small screens */
-  padding: 0 clamp(0.75rem, 4cqw, 2rem);
+  padding: 0 clamp(0.75rem, 4vw, 2rem);
 }
 
 section {
   padding: 5rem 0;
-  min-height: 100cqh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -180,7 +213,7 @@ h2 {
 }
 
 h2 {
-  font-size: clamp(2.5rem, 7cqw, 4.5rem);
+  font-size: clamp(2.5rem, 7vw, 4.5rem);
   text-align: center;
   margin-bottom: 3rem;
   color: var(--text-color);
