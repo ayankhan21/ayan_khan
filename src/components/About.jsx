@@ -75,10 +75,10 @@ const About = () => {
                         <motion.div
                             key={title}
                             initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
+                            whileInView={{ opacity: 1, y: 0, transition: { duration: 0.5, delay: index * 0.1 } }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                            whileHover={{ x: 3, y: 3, boxShadow: '3px 3px 0 var(--text-color)' }}
+                            transition={{ duration: 0.15 }}
+                            whileHover={{ boxShadow: '3px 3px 0 var(--text-color)' }}
                             style={{
                                 backgroundColor: index % 2 ? 'var(--secondary-bg)' : 'var(--card-bg)',
                                 border: 'var(--ink-border)',
