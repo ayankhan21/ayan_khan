@@ -8,27 +8,23 @@ const skillCategories = [
     },
     {
         title: "Frontend",
-        skills: ["React", "Next.js", "Redux", "React Query", "Zod", "Tailwind CSS", "Material UI", "Shadcn UI", "Bootstrap"]
+        skills: ["React", "Next.js", "Redux", "React Query", "Zod", "Tailwind CSS", "Material UI", "Bootstrap"]
     },
     {
         title: "Backend",
-        skills: ["Node.js (Express.js, NestJS)", "Spring Boot", "REST APIs", "WebSockets", "Server-Sent Events (SSE)", "gRPC"]
+        skills: ["Node.js (Express.js, NestJS)", "REST APIs", "WebSockets", "Server-Sent Events (SSE)", "gRPC"]
     },
     {
         title: "Databases & Caching",
-        skills: ["PostgreSQL", "MongoDB", "Redis", "Cloudflare D1"]
+        skills: ["PostgreSQL", "Redis", "Cloudflare D1"]
     },
     {
         title: "Version Control & Tools",
         skills: ["Git", "Docker", "Kubernetes", "Sentry (Logging)"]
     },
     {
-        title: "Cloud & DevOps",
-        skills: ["AWS", "CI/CD (GitHub Actions, Docker Compose)"]
-    },
-    {
         title: "Hosting & Deployment",
-        skills: ["Cloudflare (Workers)", "Vercel", "Netlify"]
+        skills: ["AWS", "Cloudflare (Workers)", "Vercel", "Netlify"]
     }
 ];
 

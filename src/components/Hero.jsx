@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, FileText } from 'lucide-react';
 import profileImage from '../assets/image.avif';
+import ScrambleText from './ScrambleText';
 
 const Hero = () => {
     return (
@@ -31,8 +32,8 @@ const Hero = () => {
                             marginBottom: '0.5rem',
                             lineHeight: 0.9
                         }}>
-                            Ayan<br />
-                            <span className="outline-text">Khan</span>
+                            <ScrambleText text="Ayan" /><br />
+                            <span className="outline-text"><ScrambleText text="Khan" delay={120} /></span>
                         </h2>
                         <h3 className="label" style={{
                             fontSize: 'clamp(0.8rem, 1.4vw, 1rem)',
@@ -44,7 +45,7 @@ const Hero = () => {
                             background: 'var(--accent-2)',
                             border: 'var(--ink-border)'
                         }}>
-                            Building scalable systems.
+                            <ScrambleText text="Building scalable systems." delay={240} />
                         </h3>
                         <p style={{
                             maxWidth: '600px',
@@ -57,7 +58,7 @@ const Hero = () => {
                             border: 'var(--ink-border)',
                             boxShadow: 'var(--hard-shadow)'
                         }}>
-                            I'm a software engineer specializing in designing and building robust backend scalable systems. Currently, I'm focused on creating performant, data-intensive APIs and reliable infrastructure. When I'm not architecting servers, I'm usually riding, working out, or playing badminton or football.
+                            I'm a software engineer who loves apps that work at scale, and I'm always digging into how planet-scale apps actually run. When I'm not building, I'm usually riding, working out, or playing badminton or football.
                         </p>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
                             <a href="#contact" className="btn" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>

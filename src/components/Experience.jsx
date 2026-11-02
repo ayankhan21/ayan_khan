@@ -6,12 +6,12 @@ const experiences = [
         company: "Vericap (Formerly EnverX)",
         period: "January 2024 - Present",
         description: [
-            "Independently implemented 50+ REST API endpoints across core platform workflows — including project management, checklists, and authentication — owning the full stack from query design to service and controller logic in NestJS and TypeORM. ",
-            "Reduced project catalogue latency by 35% (1000ms → 650ms) across 35+ endpoints by parallelizing sequential DB calls with Promise.all and introducing Redis caching with write-through invalidation for read-heavy sections — cache expiry aligned to investor link validity window.",
-            "Integrated AWS SNS, SES, and Lambda to power core platform communication and document workflows — built a reusable email service over SES with console-managed templates, and offloaded zip file generation for document downloads to Lambda to keep response times fast.",
-            "Built the investor-facing project catalogue — an auth-gated one-pager with a custom permission engine that parsed nested JSON link permissions to conditionally render 12 sections as visible, hidden, or access-requested. ",
-            "Migrated frontend to a Turborepo monorepo with shared component packages — enabling UI components to be built once and consumed across both admin and user apps.",
-            "Reduced initial JS bundle size from 1MB+ to under 600kb across multiple routes by auditing Turborepo build output, removing unused dependencies, eliminating dead code, and lazy loading heavy modules."
+            "Independently implemented ==50+ REST API endpoints== across core platform workflows — including project management, checklists, and authentication — owning the full stack from query design to service and controller logic in NestJS and TypeORM. ",
+            "Reduced project catalogue latency by ==35% (1000ms → 650ms)== across 35+ endpoints by parallelizing sequential DB calls with Promise.all and introducing ==Redis caching== with write-through invalidation for read-heavy sections — cache expiry aligned to investor link validity window.",
+            "Integrated ==AWS SNS, SES, and Lambda== to power core platform communication and document workflows — built a reusable email service over SES with console-managed templates, and offloaded zip file generation for document downloads to Lambda to keep response times fast.",
+            "Built the investor-facing project catalogue — an auth-gated one-pager with a ==custom permission engine== that parsed nested JSON link permissions to conditionally render 12 sections as visible, hidden, or access-requested. ",
+            "Migrated frontend to a ==Turborepo monorepo== with shared component packages — enabling UI components to be built once and consumed across both admin and user apps.",
+            "Reduced initial JS bundle size ==from 1MB+ to under 600kb== across multiple routes by auditing Turborepo build output, removing unused dependencies, eliminating dead code, and lazy loading heavy modules."
         ]
     },
     {
@@ -20,12 +20,27 @@ const experiences = [
         period: "August 2023 – December 2023",
         description: [
             "Integrated frontend with RESTful APIs, enabling smooth data exchange between client and server.",
-            "Developed and maintained 15+ reusable UI components using React, Redux, Formik, and Bootstrap.",
-            "Refactored performance and reduced page load times by ~35% for core features like Wallet and Transactions.",
-            "Applied clean code and modular design principles across 20+ files, contributing to a 25% reduction in reported UI bugs."
+            "Developed and maintained ==15+ reusable UI components== using React, Redux, Formik, and Bootstrap.",
+            "Refactored performance and reduced page load times by ==~35%== for core features like Wallet and Transactions.",
+            "Applied clean code and modular design principles across 20+ files, contributing to a ==25% reduction in reported UI bugs==."
         ]
     }
 ];
+
+// Wraps ==marked== bits of a bullet in a highlighter stroke that sweeps in as the card scrolls into view.
+const withHighlights = (text) =>
+    text.split(/==(.+?)==/).map((part, i) => (i % 2 ? (
+        <motion.mark
+            key={i}
+            className="hl"
+            initial={{ backgroundSize: '0% 100%' }}
+            whileInView={{ backgroundSize: '100% 100%' }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.5, ease: 'easeOut' }}
+        >
+            {part}
+        </motion.mark>
+    ) : part));
 
 const Experience = () => {
     return (
@@ -71,15 +86,30 @@ const Experience = () => {
                             <p className="label" style={{ display: 'inline-block', background: 'var(--accent-2)', border: 'var(--ink-border)', padding: '0.25rem 0.6rem', marginBottom: '1rem' }}>
                                 {exp.company} {exp.company && exp.period && ' / '}{exp.period}
                             </p>
-                            <ul style={{ color: 'var(--muted)', paddingLeft: '1.5rem', margin: 0 }}>
+                            <ul className="exp-list" style={{ color: 'var(--muted)', paddingLeft: '1.5rem', margin: 0, listStyle: 'disc' }}>
                                 {exp.description.map((point, idx) => (
-                                    <li key={idx} style={{ marginBottom: '0.5rem' }}>{point}</li>
+                                    <li key={idx} style={{ marginBottom: '0.5rem' }}>{withHighlights(point)}</li>
                                 ))}
                             </ul>
                         </motion.div>
                     ))}
                 </div>
             </div>
+
+            <style>{`
+                .exp-list li::marker { font-size: 0.75em; }
+                /* Highlighter pen: a slightly uneven yellow stroke that sits a little behind the text's midline */
+                .hl {
+                    color: var(--text-color);
+                    padding: 0.05em 0.25em;
+                    margin: 0 -0.1em;
+                    border-radius: 0.35em 0.7em 0.4em 0.6em;
+                    background-image: linear-gradient(transparent 12%, rgba(255, 221, 51, 0.8) 12%, rgba(255, 221, 51, 0.8) 92%, transparent 92%);
+                    background-repeat: no-repeat;
+                    -webkit-box-decoration-break: clone;
+                    box-decoration-break: clone;
+                }
+            `}</style>
         </section>
     );
 };

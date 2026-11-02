@@ -20,7 +20,7 @@
   --bg-color: #f6f4ee;
   --text-color: #16191b;
   --accent-color: #d7261e;
-  --accent-2: #2f5bd3;
+  --accent-2: #c7cbcd;
   --accent-rgb: 215, 38, 30;
   --btn-text: #f6f4ee;
   --secondary-bg: #c7cbcd;
@@ -248,7 +248,8 @@ h2 {
   font-family: var(--font-display);
   text-transform: uppercase;
   line-height: 0.9;
-  color: transparent;
+  /* filled with the page colour, not transparent, so the background rain does not show through the letters */
+  color: var(--bg-color);
   -webkit-text-stroke: var(--border-w) var(--text-color);
 }
 

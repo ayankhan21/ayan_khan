@@ -1,13 +1,18 @@
 import { motion } from 'framer-motion';
-import { Bike, Utensils, Dumbbell, Trophy, Waves, Plane } from 'lucide-react';
+import { Utensils, Dumbbell, Plane } from 'lucide-react';
+import ShuttleIcon from './ShuttleIcon';
+import MotorbikeIcon from './MotorbikeIcon';
+import SwimmerIcon from './SwimmerIcon';
 
+// `hover` is the icon wrapper's motion on card hover. Riding and Swimming animate inside their own SVGs
+// (wheels, swimmer), and Food stays still.
 const beyondCode = [
-    { icon: Trophy, title: 'Badminton', text: 'Fast rallies, zero screens. My favourite way to switch off.' },
-    { icon: Bike, title: 'Riding', text: 'Long rides to clear my head and find the next good view.' },
+    { icon: ShuttleIcon, title: 'Badminton', text: 'Fast rallies, zero screens. My favourite way to switch off.', hover: { x: [0, 4, 0], y: [0, -4, 0], duration: 0.3 } },
+    { icon: MotorbikeIcon, title: 'Riding', text: 'Long rides to clear my head and find the next good view.' },
     { icon: Utensils, title: 'Food', text: 'I like eating well, and I will happily plan a day around a meal.' },
-    { icon: Dumbbell, title: 'Working out & football', text: 'Staying active keeps me sharp when I am back at the keyboard.' },
-    { icon: Waves, title: 'Swimming', text: 'Quiet laps in the water to reset my head and stay fit.' },
-    { icon: Plane, title: 'Travelling', text: 'New places, new food, and a fresh perspective every time I go.' }
+    { icon: Dumbbell, title: 'Working out & football', text: 'Staying active keeps me sharp when I am back at the keyboard.', hover: { y: [0, -5, 0], duration: 0.3 } },
+    { icon: SwimmerIcon, title: 'Swimming', text: 'Quiet laps in the water to reset my head and stay fit.' },
+    { icon: Plane, title: 'Travelling', text: 'New places, new food, and a fresh perspective every time I go.', hover: { x: [0, 7, 0], y: [0, -7, 0], duration: 0.5 } }
 ];
 
 const About = () => {
@@ -71,14 +76,15 @@ const About = () => {
                     gridTemplateColumns: 'repeat(auto-fit, minmax(max(240px, calc((100% - 3rem) / 3)), 1fr))',
                     gap: '1.5rem'
                 }}>
-                    {beyondCode.map(({ icon: Icon, title, text }, index) => (
+                    {beyondCode.map(({ icon: Icon, title, text, hover }, index) => (
                         <motion.div
                             key={title}
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0, transition: { duration: 0.5, delay: index * 0.1 } }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.15 }}
-                            whileHover={{ boxShadow: '3px 3px 0 var(--text-color)' }}
+                            whileHover="hover"
+                            variants={{ hover: { boxShadow: '3px 3px 0 var(--text-color)' } }}
                             style={{
                                 backgroundColor: index % 2 ? 'var(--secondary-bg)' : 'var(--card-bg)',
                                 border: 'var(--ink-border)',
@@ -88,8 +94,8 @@ const About = () => {
                             }}
                         >
                             <motion.div
-                                whileHover={{ rotate: [0, -12, 12, 0], scale: 1.15 }}
-                                transition={{ duration: 0.5 }}
+                                variants={hover && { hover: { x: hover.x, y: hover.y } }}
+                                transition={{ duration: hover?.duration ?? 0, ease: 'easeOut' }}
                                 style={{ display: 'inline-block', marginBottom: '1rem' }}
                             >
                                 <Icon size={32} strokeWidth={1.5} />
