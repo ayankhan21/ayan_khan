@@ -23,7 +23,7 @@ const Hero = () => {
                         style={{ flex: '0 1 600px' }}
                     >
                         <p className="label" style={{ marginBottom: '1.25rem' }}>
-                            <span className="tag">Index</span> / Software Engineer Portfolio
+                            <span className="tag">Index</span> / Software Engineer
                         </p>
                         <h2 style={{
                             fontSize: 'clamp(4rem, 12vw, 9rem)',
@@ -150,6 +150,7 @@ const Hero = () => {
             flex-direction: column-reverse !important;
             text-align: center;
             justify-content: center;
+            gap: 1rem !important;
           }
           .hero-content > div {
             flex: 0 0 auto !important;
